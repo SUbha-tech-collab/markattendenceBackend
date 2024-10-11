@@ -63,9 +63,9 @@ const dbConfig = {
   connectionLimit: 10, // Maximum number of connections in the pool
   host: "sql12.freemysqlhosting.net", // Remote MySQL host
   port: 3306, // MySQL port number
-  database: "sql12733336", // Name of the database
-  user: "sql12733336", // Username for the database
-  password: "Lb62Kf4hyY", // Password for the database
+  database: "sql12737044", // Name of the database
+  user: "sql12737044", // Username for the database
+  password: "EYucusWht6", // Password for the database
 };
 
 module.exports = dbConfig;
@@ -275,11 +275,12 @@ app.post("/attendence", (req, res) => {
       value[i].substr(0, 8) + (parseInt(value[i].substr(8, 2)) + 1),
       timeRange[i][0],
       timeRange[i][1],
+      'CURRENT_TIMESTAMP',
       'CURRENT_TIMESTAMP'
     ]);
   }
   const sql =
-    "insert into attendence_table (userid, date, start_time, end_time, modify_time) values ?";
+    "insert into attendence_table (userid, date, start_time, end_time, marking_time, modify_time) values ?";
 
   // Get connection from the pool
   pool.getConnection((err, connection) => {
