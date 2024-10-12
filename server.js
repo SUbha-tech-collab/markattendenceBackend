@@ -275,8 +275,8 @@ app.post("/attendence", (req, res) => {
       value[i].substr(0, 8) + (parseInt(value[i].substr(8, 2)) + 1),
       timeRange[i][0],
       timeRange[i][1],
-      now(),
-      now()
+      'CURRENT_TIMESTAMP',
+      'CURRENT_TIMESTAMP'
     ]);
   }
   const sql =
