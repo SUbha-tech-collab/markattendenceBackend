@@ -274,11 +274,13 @@ app.post("/attendence", (req, res) => {
       email,
       value[i].substr(0, 8) + (parseInt(value[i].substr(8, 2)) + 1),
       timeRange[i][0],
-      timeRange[i][1]
+      timeRange[i][1],
+      now(),
+      now()
     ]);
   }
   const sql =
-    "insert into attendence_table (userid, date, start_time, end_time, marking_time, modify_time) values (?, ?, ?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)";
+    "insert into attendence_table (userid, date, start_time, end_time, marking_time, modify_time) values ?";
 
   // Get connection from the pool
   pool.getConnection((err, connection) => {
